@@ -14,8 +14,12 @@
   <body>
     <nav class="main-nav">
       <h1><a href="<%= cats_url %>">99 Cats</a></h1>
+      <% if logged_in? %>
+        <h2>Welcome, <%= @current_user.username %></h2>
+      <% end %>
     </nav>
     <main>
+      
       <%= yield %>
     </main>
   </body>
