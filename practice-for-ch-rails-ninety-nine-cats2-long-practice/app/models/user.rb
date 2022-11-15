@@ -12,7 +12,7 @@
 class User < ApplicationRecord
     validates :username, uniqueness: true
     validates :password_digest, :username, :session_token, presence: true
-    before_validation :generate_unique_session_token
+    before_validation :ensure_session_token
     validates :password, length: {minimum: 6}, allow_nil: true
 
     attr_reader :password
